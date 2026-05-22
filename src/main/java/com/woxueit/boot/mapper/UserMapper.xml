@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 必须和 Mapper 接口全类名一致 -->
+<mapper namespace="com.woxueit.boot.mapper.UserMapper">
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+    <insert id="addUser" parameterType="User">
+        insert into user (name, age) values (#{name}, #{age});
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update user
+        <set>
+            <if test="name!=null and name!=''">name = #{name},</if>
+            <if test="age!=null and age!=0">age = #{age}</if>
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deleteUserById" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+    <select id="getUserById" parameterType="int" resultType="User">
+        select * from user where id = #{id}
+    </select>
+    <select id="getUsers" resultType="User">
+        select * from user
+    </select>
+</mapper>
