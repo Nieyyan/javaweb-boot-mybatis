@@ -77,6 +77,7 @@ It means that look for the *com/woxueit/boot/mapper* under the classpath to find
 ### Solution
 #### 1.Move the XML file
 From: *src/main/java/com/woxueit/boot/mapper/UserMapper.xml*
+
 To: *src/main/resources/mapper/UserMapper.xml*
 
 #### 2.Modify the configuration file:
